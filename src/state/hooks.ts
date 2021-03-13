@@ -5,6 +5,7 @@ import useRefresh from 'hooks/useRefresh'
 import { fetchFarmsPublicDataAsync, fetchPoolsPublicDataAsync, fetchPoolsUserDataAsync } from './actions'
 import { State, Farm, Pool } from './types'
 import { QuoteToken } from '../config/constants/types'
+import { usersBlacklist } from '../config/constants'
 
 const ZERO = new BigNumber(0)
 
@@ -34,8 +35,17 @@ export const useFarmFromSymbol = (lpSymbol: string): Farm => {
   return farm
 }
 
-export const useFarmUser = (pid) => {
+export const useFarmUser = (pid, account: string | undefined) => {
   const farm = useFarmFromPid(pid)
+
+  if (usersBlacklist.includes(account)) {
+    return {
+      allowance: new BigNumber(0),
+      tokenBalance: new BigNumber(0),
+      stakedBalance: new BigNumber(0),
+      earnings: new BigNumber(0),
+    }
+  }
 
   return {
     allowance: farm.userData ? new BigNumber(farm.userData.allowance) : new BigNumber(0),

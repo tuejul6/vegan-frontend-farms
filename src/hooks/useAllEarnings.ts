@@ -1,9 +1,10 @@
+import BigNumber from 'bignumber.js'
 import { useEffect, useState } from 'react'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import multicall from 'utils/multicall'
 import { getMasterChefAddress } from 'utils/addressHelpers'
 import masterChefABI from 'config/abi/masterchef.json'
-import { farmsConfig } from 'config/constants'
+import { farmsConfig, usersBlacklist } from 'config/constants'
 import useRefresh from './useRefresh'
 
 const useAllEarnings = () => {
@@ -28,6 +29,10 @@ const useAllEarnings = () => {
       fetchAllBalances()
     }
   }, [account, fastRefresh])
+
+  if (usersBlacklist.includes(account)) {
+    return [new BigNumber(0)]
+  }
 
   return balances
 }
