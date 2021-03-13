@@ -50,6 +50,10 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
+        label: 'Roadmap',
+        href: 'https://vegandefi.medium.com/vegan-swap-roadmap-94d69f7653b',
+      },
+      {
         label: 'Overview',
         href: 'https://pancakeswap.info/token/0x901e58695306b5c33c5169334e921a4cf4841571',
       },
