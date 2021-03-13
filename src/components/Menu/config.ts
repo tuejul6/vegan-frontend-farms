@@ -46,6 +46,21 @@ const config: MenuEntry[] = [
   //   href: '/nft',
   // },
   {
+    label: 'Price Chart',
+    icon: 'ChartIcon',
+    href: '/chart'
+  },
+  {
+    label: 'Listings',
+    icon: 'ListingIcon',
+    items: [
+      {
+        label: 'DappRadar',
+        href: 'https://dappradar.com/binance-smart-chain/defi/vegan-swap',
+      }
+    ],
+  },
+  {
     label: 'Info',
     icon: 'InfoIcon',
     items: [
@@ -71,24 +86,24 @@ const config: MenuEntry[] = [
       // },
     ],
   },
-  // {
-  //   label: 'More',
-  //   icon: 'MoreIcon',
-  //   items: [
-  //     {
-  //       label: 'Github',
-  //       href: 'https://github.com/goosedefi/',
-  //     },
-  //     {
-  //       label: 'Docs',
-  //       href: 'https://goosedefi.gitbook.io/goose-finance/',
-  //     },
-  //     {
-  //       label: 'Blog',
-  //       href: 'https://goosefinance.medium.com/',
-  //     },
-  //   ],
-  // },
+  {
+    label: 'More',
+    icon: 'MoreIcon',
+    items: [
+      {
+        label: 'Github',
+        href: 'https://github.com/veganswap-defi/',
+      },
+      // {
+      //   label: 'Docs',
+      //   href: 'https://goosedefi.gitbook.io/goose-finance/',
+      // },
+      {
+        label: 'Blog',
+        href: 'https://vegandefi.medium.com/',
+      },
+    ],
+  },
   // {
   //   label: 'Partnerships/IFO',
   //   icon: 'GooseIcon',
