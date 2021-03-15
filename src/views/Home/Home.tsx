@@ -54,15 +54,26 @@ const Cards = styled(BaseLayout)`
   }
 `
 
+const StyledHeading = styled(Heading)`
+  ${({ theme }) => theme.mediaQueries.xs} {
+    position: relative;
+    bottom: 135px;
+  }
+  
+  ${({ theme }) => theme.mediaQueries.lg} {
+    bottom: 0;
+  }
+`
+
 const Home: React.FC = () => {
   const TranslateString = useI18n()
 
   return (
     <Page>
       <Hero>
-        <Heading as="h1" size="xl" mb="24px" color="primary">
+        <StyledHeading as="h1" size="xl" mb="24px" color="primary">
           {TranslateString(576, 'Vegan Finance')}
-        </Heading>
+        </StyledHeading>
         <Text>{TranslateString(578, 'The most natural and healthy DEFI app on Binance Smart Chain')}</Text>
       </Hero>
       <div>
