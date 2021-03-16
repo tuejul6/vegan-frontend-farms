@@ -1897,7 +1897,7 @@
 
 "@pancakeswap-libs/uikit@veganswap-defi/vegan-uikit":
   version "0.10.11"
-  resolved "https://codeload.github.com/veganswap-defi/vegan-uikit/tar.gz/12b349df296f0dc3c30f12e27635fb3199ed20d2"
+  resolved "https://codeload.github.com/veganswap-defi/vegan-uikit/tar.gz/ea243c89c7b02035506178412ca6666f92c843c9"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
