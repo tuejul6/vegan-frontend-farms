@@ -1896,8 +1896,8 @@
     eslint-plugin-react-hooks "^4.0.0"
 
 "@pancakeswap-libs/uikit@veganswap-defi/vegan-uikit":
-  version "0.10.10"
-  resolved "https://codeload.github.com/veganswap-defi/vegan-uikit/tar.gz/12b349df296f0dc3c30f12e27635fb3199ed20d2"
+  version "0.10.12"
+  resolved "https://codeload.github.com/veganswap-defi/vegan-uikit/tar.gz/04b7c0339591e651a6fdeaa977611a1e0072509a"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"
