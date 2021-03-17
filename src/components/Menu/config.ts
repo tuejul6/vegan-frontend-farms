@@ -46,6 +46,16 @@ const config: MenuEntry[] = [
   //   href: '/nft',
   // },
   {
+    label: 'Audits',
+    icon: 'AuditIcon',
+    items: [
+      {
+        label: 'Techrate',
+        href: 'https://veganswap.finance/files/techrateAudit.pdf',
+      },
+    ],
+  },
+  {
     label: 'Price Chart',
     icon: 'ChartIcon',
     href: '/chart',
