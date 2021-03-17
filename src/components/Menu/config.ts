@@ -48,7 +48,17 @@ const config: MenuEntry[] = [
   {
     label: 'Price Chart',
     icon: 'ChartIcon',
-    href: '/chart'
+    href: '/chart',
+  },
+  {
+    label: 'Our Partners',
+    icon: 'GroupsIcon',
+    items: [
+      {
+        label: 'Whirl Finance',
+        href: 'https://www.whirl-finance.com/',
+      },
+    ],
   },
   {
     label: 'Listings',
@@ -57,7 +67,7 @@ const config: MenuEntry[] = [
       {
         label: 'DappRadar',
         href: 'https://dappradar.com/binance-smart-chain/defi/vegan-swap',
-      }
+      },
     ],
   },
   {
