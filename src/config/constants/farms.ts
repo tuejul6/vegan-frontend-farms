@@ -35,6 +35,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
+    pid: 6,
+    risk: 3,
+    lpSymbol: 'VEGAN-CAKE LP',
+    lpAddresses: {
+      97: '',
+      56: '0x199C917CB3daf0e74cD9466d02b8Bcc1aA03f755',
+    },
+    tokenSymbol: 'VEGAN',
+    tokenAddresses: {
+      97: '',
+      56: '0x901e58695306b5c33c5169334e921a4cf4841571',
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid: 7,
     risk: 3,
     lpSymbol: 'WHIRL-BNB LP',
@@ -66,22 +82,6 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
-  // {
-  //   pid: 6,
-  //   risk: 3,
-  //   lpSymbol: 'VEGAN-CAKE LP',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0x199C917CB3daf0e74cD9466d02b8Bcc1aA03f755',
-  //   },
-  //   tokenSymbol: 'VEGAN',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0x901e58695306b5c33c5169334e921a4cf4841571',
-  //   },
-  //   quoteTokenSymbol: QuoteToken.CAKE,
-  //   quoteTokenAdresses: contracts.cake,
-  // },
   // {
   //   pid: 3,
   //   risk: 1,
