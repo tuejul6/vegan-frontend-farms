@@ -35,6 +35,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
+    pid: 10,
+    risk: 3,
+    lpSymbol: 'FSXU-BNB LP',
+    lpAddresses: {
+      97: '',
+      56: '0x7674F88A91CF4443647FA4c49945F548D918da35',
+    },
+    tokenSymbol: 'FSXU',
+    tokenAddresses: {
+      97: '',
+      56: '0xa94b7a842aadb617a0b08fa744e033c6de2f7595',
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
     pid: 6,
     risk: 3,
     lpSymbol: 'VEGAN-CAKE LP',
@@ -82,6 +98,22 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
+  // {
+  //   pid: 9,
+  //   risk: 5,
+  //   lpSymbol: 'VEGAN-ETH LP',
+  //   lpAddresses: {
+  //     97: '',
+  //     56: '0xe29f7B147058b29A5e177C0A4EcB56e124eaBbF4',
+  //   },
+  //   tokenSymbol: 'VEGAN',
+  //   tokenAddresses: {
+  //     97: '',
+  //     56: '0x901e58695306b5c33c5169334e921a4cf4841571',
+  //   },
+  //   quoteTokenSymbol: QuoteToken.ETH,
+  //   quoteTokenAdresses: contracts.eth,
+  // },
   // {
   //   pid: 3,
   //   risk: 1,
