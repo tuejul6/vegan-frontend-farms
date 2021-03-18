@@ -35,7 +35,7 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
-    pid: 10,
+    pid: 11,
     risk: 3,
     lpSymbol: 'FSXU-BNB LP',
     lpAddresses: {
