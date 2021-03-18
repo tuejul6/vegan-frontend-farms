@@ -46,6 +46,11 @@ const config: MenuEntry[] = [
   //   href: '/nft',
   // },
   {
+    label: 'Price Chart',
+    icon: 'ChartIcon',
+    href: '/chart',
+  },
+  {
     label: 'Audits',
     icon: 'AuditIcon',
     items: [
@@ -56,11 +61,6 @@ const config: MenuEntry[] = [
     ],
   },
   {
-    label: 'Price Chart',
-    icon: 'ChartIcon',
-    href: '/chart',
-  },
-  {
     label: 'Our Partners',
     icon: 'GroupsIcon',
     items: [
@@ -68,6 +68,10 @@ const config: MenuEntry[] = [
         label: 'Whirl Finance',
         href: 'https://www.whirl-finance.com/',
       },
+      {
+        label: 'FlashX Ultra FSXU',
+        href: 'https://www.flashxcoinofficial.com/'
+      }
     ],
   },
   {
