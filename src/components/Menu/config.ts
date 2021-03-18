@@ -69,7 +69,7 @@ const config: MenuEntry[] = [
         href: 'https://www.whirl-finance.com/',
       },
       {
-        label: 'FlashX Ultra FSXU',
+        label: 'FlashX Ultra',
         href: 'https://www.flashxcoinofficial.com/'
       }
     ],
