@@ -34,22 +34,22 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.BNB,
     quoteTokenAdresses: contracts.wbnb,
   },
-  {
-    pid: 10,
-    risk: 3,
-    lpSymbol: 'FSXU-BNB LP',
-    lpAddresses: {
-      97: '',
-      56: '0x7674F88A91CF4443647FA4c49945F548D918da35',
-    },
-    tokenSymbol: 'FSXU',
-    tokenAddresses: {
-      97: '',
-      56: '0xa94b7a842aadb617a0b08fa744e033c6de2f7595',
-    },
-    quoteTokenSymbol: QuoteToken.BNB,
-    quoteTokenAdresses: contracts.wbnb,
-  },
+  // {
+  //   pid: 10,
+  //   risk: 3,
+  //   lpSymbol: 'FSXU-BNB LP',
+  //   lpAddresses: {
+  //     97: '',
+  //     56: '0x7674F88A91CF4443647FA4c49945F548D918da35',
+  //   },
+  //   tokenSymbol: 'FSXU',
+  //   tokenAddresses: {
+  //     97: '',
+  //     56: '0xa94b7a842aadb617a0b08fa744e033c6de2f7595',
+  //   },
+  //   quoteTokenSymbol: QuoteToken.BNB,
+  //   quoteTokenAdresses: contracts.wbnb,
+  // },
   {
     pid: 6,
     risk: 3,
