@@ -40,7 +40,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'VEGAN-WHIRL LP',
     lpAddresses: {
       97: '',
-      56: '0x7f479d78380ad00341fdd7322fe8aef766e29e5a',
+      56: '0x60468BEFC260534B962B8A2a2F7cF84f16789965',
     },
     tokenSymbol: 'VEGAN',
     tokenAddresses: {
