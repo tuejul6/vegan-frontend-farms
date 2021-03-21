@@ -35,6 +35,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
+    pid: 12,
+    risk: 5,
+    lpSymbol: 'VEGAN-WHIRL LP',
+    lpAddresses: {
+      97: '',
+      56: '0x60468BEFC260534B962B8A2a2F7cF84f16789965',
+    },
+    tokenSymbol: 'VEGAN',
+    tokenAddresses: {
+      97: '',
+      56: '0x901e58695306b5c33c5169334e921a4cf4841571',
+    },
+    quoteTokenSymbol: QuoteToken.WHIRL,
+    quoteTokenAdresses: contracts.whirl,
+  },
+  {
     pid: 11,
     risk: 3,
     lpSymbol: 'FSXU-BNB LP',
@@ -255,6 +271,23 @@ const farms: FarmConfig[] = [
     tokenAddresses: {
       97: '',
       56: '0x901e58695306b5c33c5169334e921a4cf4841571',
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    pid: 13,
+    risk: 5,
+    isTokenOnly: true,
+    lpSymbol: 'WHIRL',
+    lpAddresses: {
+      97: '',
+      56: '0x60468BEFC260534B962B8A2a2F7cF84f16789965', // BNB-BUSD LP
+    },
+    tokenSymbol: 'WHIRL',
+    tokenAddresses: {
+      97: '',
+      56: '0x7f479d78380ad00341fdd7322fe8aef766e29e5a',
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
