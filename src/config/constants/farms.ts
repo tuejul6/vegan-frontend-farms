@@ -47,8 +47,8 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0x901e58695306b5c33c5169334e921a4cf4841571',
     },
-    quoteTokenSymbol: QuoteToken.WHIRL,
-    quoteTokenAdresses: contracts.whirl,
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
   },
   {
     pid: 11,

@@ -15,10 +15,6 @@ export default {
     56: '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
     97: '',
   },
-  whirl: {
-    56: '0x7f479d78380ad00341fdd7322fe8aef766e29e5a',
-    97: '',
-  },
   lottery: {
     56: '',
     97: '',
