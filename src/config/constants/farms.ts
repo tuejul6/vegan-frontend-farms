@@ -282,15 +282,15 @@ const farms: FarmConfig[] = [
     lpSymbol: 'WHIRL',
     lpAddresses: {
       97: '',
-      56: '0x60468BEFC260534B962B8A2a2F7cF84f16789965', // BNB-BUSD LP
+      56: '0x819e546B2b269b99d52d26Ffdd9D852E6cd6b448', // WHIRL-BUSD LP
     },
     tokenSymbol: 'WHIRL',
     tokenAddresses: {
       97: '',
       56: '0x7f479d78380ad00341fdd7322fe8aef766e29e5a',
     },
-    quoteTokenSymbol: QuoteToken.CAKE,
-    quoteTokenAdresses: contracts.cake,
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
   },
   {
     pid: 4,
