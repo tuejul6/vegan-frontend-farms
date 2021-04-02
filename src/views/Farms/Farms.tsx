@@ -52,30 +52,37 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   // to retrieve assets prices against USD
   const farmsList = useCallback(
     (farmsToDisplay, removed: boolean) => {
-      // const cakePriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === CAKE_POOL_PID)?.tokenPriceVsQuote || 0)
+      const cakePriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === CAKE_POOL_PID)?.tokenPriceVsQuote || 0)
       const farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
-        //   return farm
-        // }
-        const cakeRewardPerBlock = new BigNumber(farm.veganPerBlock || 1)
-          .times(new BigNumber(farm.poolWeight))
-          .div(new BigNumber(10).pow(18))
+        if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
+          return farm
+        }
+        const cakeRewardPerBlock = CAKE_PER_BLOCK.times(farm.poolWeight)
         const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
 
-        let apy = cakePrice.times(cakeRewardPerYear)
+        // cakePriceInQuote * cakeRewardPerYear / lpTotalInQuoteToken
+        let apy = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken)
 
-        let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0)
+        if (farm.quoteTokenSymbol === QuoteToken.BUSD || farm.quoteTokenSymbol === QuoteToken.UST) {
+          apy = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
+        } else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
+          apy = cakeRewardPerYear.div(farm.lpTotalInQuoteToken)
+        } else if (farm.dual) {
+          const cakeApy =
+            farm && cakePriceVsBNB.times(cakeRewardPerBlock).times(BLOCKS_PER_YEAR).div(farm.lpTotalInQuoteToken)
+          const dualApy =
+            farm.tokenPriceVsQuote &&
+            new BigNumber(farm.tokenPriceVsQuote)
+              .times(farm.dual.rewardPerBlock)
+              .times(BLOCKS_PER_YEAR)
+              .div(farm.lpTotalInQuoteToken)
 
-        if (farm.quoteTokenSymbol === QuoteToken.BNB) {
-          totalValue = totalValue.times(bnbPrice)
-        }
-
-        if (totalValue.comparedTo(0) > 0) {
-          apy = apy.div(totalValue)
+          apy = cakeApy && dualApy && cakeApy.plus(dualApy)
         }
 
         return { ...farm, apy }
       })
+      console.log(farmsToDisplayWithAPY)
       return farmsToDisplayWithAPY.map((farm) => (
         <FarmCard
           key={farm.pid}
@@ -88,7 +95,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         />
       ))
     },
-    [bnbPrice, account, cakePrice, ethereum],
+    [bnbPrice, account, cakePrice, ethereum, farmsLP],
   )
 
   return (
