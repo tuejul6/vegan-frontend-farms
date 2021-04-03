@@ -82,6 +82,10 @@ const config: MenuEntry[] = [
         label: 'DappRadar',
         href: 'https://dappradar.com/binance-smart-chain/defi/vegan-swap',
       },
+      {
+        label: 'Blockfolio',
+        href: 'https://blockfolio.com/coin/VEGAN',
+      },
     ],
   },
   {
