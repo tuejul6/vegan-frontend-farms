@@ -67,6 +67,22 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.busd,
   },
   {
+    pid: 14,
+    risk: 3,
+    lpSymbol: 'VEGAN-BIFI LP',
+    lpAddresses: {
+      97: '',
+      56: '0x4c132Eea7a2333D00d663Bf2127B87D0EF306397',
+    },
+    tokenSymbol: 'WHIRL',
+    tokenAddresses: {
+      97: '',
+      56: '0x901e58695306b5c33c5169334e921a4cf4841571',
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
     pid: 7,
     risk: 3,
     lpSymbol: 'WHIRL-BNB LP',
