@@ -5,7 +5,7 @@ import easterPrizes from 'config/constants/trading-competition/easter'
 import BigNumber from 'bignumber.js'
 
 export const localiseTradingVolume = (value: number, decimals = 0) => {
-  return value.toLocaleString('en-US', { maximumFractionDigits: decimals })
+  return value.toLocaleString('en', { maximumFractionDigits: decimals })
 }
 
 export const accountEllipsis = (account: string) =>

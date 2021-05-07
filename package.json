@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "react-scripts start",
+    "start": "craco start",
     "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
+    "@craco/craco": "^6.1.2",
     "@crowdin/crowdin-api-client": "^1.10.4",
     "@ethersproject/abi": "^5.0.7",
     "@pancakeswap-libs/uikit": "veganswap-defi/vegan-toolkit",
@@ -70,6 +71,7 @@
     "@types/jest": "^26.0.19",
     "@types/react-redux": "^7.1.16",
     "@types/react-transition-group": "^4.4.1",
+    "craco-alias": "^2.2.0",
     "eslint": "^7.20.0",
     "husky": "4.3.5",
     "prettier": "^2.1.2",

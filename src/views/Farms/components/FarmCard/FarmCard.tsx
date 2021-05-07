@@ -121,7 +121,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, bnbPrice, veganPrice
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
   const earnLabel = farm.dual ? farm.dual.earnLabel : 'VEGAN'
 
-  const farmAPR = farm.apr && farm.apr.toLocaleString('en-US', { maximumFractionDigits: 2 })
+  const farmAPR = farm.apr && farm.apr.toLocaleString('en', { maximumFractionDigits: 2 })
 
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
     quoteTokenAddress: farm.quoteToken.address,

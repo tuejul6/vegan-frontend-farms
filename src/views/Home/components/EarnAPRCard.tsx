@@ -44,7 +44,7 @@ const EarnAPRCard = () => {
       })
 
     const maxApr = max(aprs)
-    return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 2 })
+    return maxApr?.toLocaleString('en', { maximumFractionDigits: 2 })
   }, [veganPrice, farmsLP, prices, veganPerBlock])
 
   return (

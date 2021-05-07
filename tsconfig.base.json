@@ -1,13 +1,8 @@
 {
-  "extends": "./tsconfig.extend.json",
   "compilerOptions": {
     "baseUrl": "src",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,10 +17,10 @@
     "jsx": "react-jsx",
     "strictNullChecks": false,
     "noImplicitAny": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@pancakeswap-libs/uikit": ["./uikit/src"],
+    }
   },
-  "include": [
-    "src",
-    "scripts"
-  ]
+  "include": ["src", "scripts"]
 }
