@@ -31,9 +31,13 @@ const config: MenuEntry[] = [
     href: '/pools',
   },
   // {
-  //   label: 'Pools',
-  //   icon: 'PoolIcon',
-  //   href: '/pools',
+  //   label: 'Prediction',
+  //   icon: 'PredictionsIcon',
+  //   href: '/prediction',
+  //   status: {
+  //     text: 'BETA',
+  //     color: 'warning',
+  //   },
   // },
   // {
   //   label: 'Lottery',
@@ -41,50 +45,30 @@ const config: MenuEntry[] = [
   //   href: '/lottery',
   // },
   // {
-  //   label: 'NFT',
+  //   label: 'Collectibles',
   //   icon: 'NftIcon',
-  //   href: '/nft',
+  //   href: '/collectibles',
+  // },
+  // {
+  //   label: 'Team Battle',
+  //   icon: 'TeamBattleIcon',
+  //   href: '/competition',
   // },
   {
-    label: 'Price Chart',
-    icon: 'ChartIcon',
-    href: '/chart',
-  },
-  {
-    label: 'Audits',
-    icon: 'AuditIcon',
-    items: [
-      {
-        label: 'Techrate',
-        href: 'https://veganswap.finance/files/techrateAudit.pdf',
-      },
-    ],
-  },
-  {
-    label: 'Our Partners',
+    label: 'Teams & Profile',
     icon: 'GroupsIcon',
     items: [
       {
-        label: 'Whirl Finance',
-        href: 'https://www.whirl-finance.com/',
+        label: 'Leaderboard',
+        href: '/teams',
       },
       {
-        label: 'FlashX Ultra',
-        href: 'https://www.flashxcoinofficial.com/'
-      }
-    ],
-  },
-  {
-    label: 'Listings',
-    icon: 'ListingIcon',
-    items: [
-      {
-        label: 'DappRadar',
-        href: 'https://dappradar.com/binance-smart-chain/defi/vegan-swap',
+        label: 'Task Center',
+        href: '/profile/tasks',
       },
       {
-        label: 'Blockfolio',
-        href: 'https://blockfolio.com/coin/VEGAN',
+        label: 'Your Profile',
+        href: '/profile',
       },
     ],
   },
@@ -93,61 +77,58 @@ const config: MenuEntry[] = [
     icon: 'InfoIcon',
     items: [
       {
-        label: 'Roadmap',
-        href: 'https://vegandefi.medium.com/vegan-swap-roadmap-94d69f7653b',
+        label: 'Overview',
+        href: 'https://pancakeswap.info',
       },
       {
-        label: 'Overview',
-        href: 'https://pancakeswap.info/token/0x901e58695306b5c33c5169334e921a4cf4841571',
+        label: 'Tokens',
+        href: 'https://pancakeswap.info/tokens',
       },
-      // {
-      //   label: 'CoinGecko',
-      //   href: 'https://www.coingecko.com/en/coins/goose-finance',
-      // },
-      // {
-      //   label: 'CoinMarketCap',
-      //   href: 'https://coinmarketcap.com/currencies/goose-finance/',
-      // },
-      // {
-      //   label: 'AstroTools',
-      //   href: 'https://app.astrotools.io/pancake-pair-explorer/0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
-      // },
+      {
+        label: 'Pairs',
+        href: 'https://pancakeswap.info/pairs',
+      },
+      {
+        label: 'Accounts',
+        href: 'https://pancakeswap.info/accounts',
+      },
     ],
+  },
+  {
+    label: 'IFO',
+    icon: 'IfoIcon',
+    href: '/ifo',
   },
   {
     label: 'More',
     icon: 'MoreIcon',
     items: [
       {
-        label: 'Github',
-        href: 'https://github.com/veganswap-defi/',
+        label: 'Contact',
+        href: 'https://docs.pancakeswap.finance/contact-us',
       },
-      // {
-      //   label: 'Docs',
-      //   href: 'https://goosedefi.gitbook.io/goose-finance/',
-      // },
+      {
+        label: 'Voting',
+        href: 'https://voting.pancakeswap.finance',
+      },
+      {
+        label: 'Github',
+        href: 'https://github.com/pancakeswap',
+      },
+      {
+        label: 'Docs',
+        href: 'https://docs.pancakeswap.finance',
+      },
       {
         label: 'Blog',
-        href: 'https://vegandefi.medium.com/',
+        href: 'https://pancakeswap.medium.com',
+      },
+      {
+        label: 'Merch',
+        href: 'https://pancakeswap.creator-spring.com/',
       },
     ],
   },
-  // {
-  //   label: 'Partnerships/IFO',
-  //   icon: 'GooseIcon',
-  //   href:
-  //     'https://docs.google.com/forms/d/e/1FAIpQLSe7ycrw8Dq4C5Vjc9WNlRtTxEhFDB1Ny6jlAByZ2Y6qBo7SKg/viewform?usp=sf_link',
-  // },
-  // {
-  //   label: 'Audit by Hacken',
-  //   icon: 'AuditIcon',
-  //   href: 'https://www.goosedefi.com/files/hackenAudit.pdf',
-  // },
-  // {
-  //   label: 'Audit by CertiK',
-  //   icon: 'AuditIcon',
-  //   href: 'https://certik.org/projects/goose-finance',
-  // },
 ]
 
 export default config
