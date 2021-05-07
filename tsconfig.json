@@ -1,13 +1,8 @@
 {
-  "extends": "./tsconfig.extend.json",
   "compilerOptions": {
     "baseUrl": "src",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -24,8 +19,6 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src",
-    "scripts"
-  ]
+  "include": ["src", "scripts"],
+  "exclude": ["src/**/*.stories.tsx", "src/**/testHelpers.tsx", "src/**/__tests__/**/*"]
 }

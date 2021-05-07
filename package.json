@@ -5,8 +5,8 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "craco start",
-    "build": "CI=false react-scripts build",
-    "test": "react-scripts test",
+    "build": "CI=false craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "format:check": "prettier --check --loglevel error 'src/**/*.{js,jsx,ts,tsx}'",
@@ -71,7 +71,6 @@
     "@types/jest": "^26.0.19",
     "@types/react-redux": "^7.1.16",
     "@types/react-transition-group": "^4.4.1",
-    "craco-alias": "^2.2.0",
     "eslint": "^7.20.0",
     "husky": "4.3.5",
     "prettier": "^2.1.2",

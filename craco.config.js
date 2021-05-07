@@ -1,14 +1,9 @@
-const CracoAlias = require('craco-alias')
+const path = require('path')
 
 module.exports = {
-  plugins: [
-    {
-      plugin: CracoAlias,
-      options: {
-        source: 'tsconfig',
-        tsConfigPath: './tsconfig.extend.json',
-        baseUrl: 'src',
-      },
+  webpack: {
+    alias: {
+      '@pancakeswap-libs/uikit': path.resolve(__dirname, 'src/uikit/src'),
     },
-  ],
+  },
 }

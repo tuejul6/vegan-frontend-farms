@@ -17,10 +17,7 @@
     "jsx": "react-jsx",
     "strictNullChecks": false,
     "noImplicitAny": false,
-    "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@pancakeswap-libs/uikit": ["./uikit/src"],
-    }
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src", "scripts"]
 }

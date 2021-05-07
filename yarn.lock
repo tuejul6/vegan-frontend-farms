@@ -4874,11 +4874,6 @@ countup.js@^1.9.3:
   resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-1.9.3.tgz#ce3e50cd7160441e478f07da31895edcc0f1c9dd"
   integrity sha1-zj5QzXFgRB5HjwfaMYle3MDxyd0=
 
-craco-alias@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/craco-alias/-/craco-alias-2.2.0.tgz#adfd37f1623d394cd5e72ef9bab54a1e451bd205"
-  integrity sha512-FLSRaCWI/CKLUO+Cb/GH9ljSYWdrlzkYf3N373Kuof0hckJ1tj+wPN0XyToR8KPUggoIB5+IDkGs1uKUBuGUiA==
-
 create-ecdh@^4.0.0:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.4.tgz#d6e7f4bffa66736085a0762fd3a632684dabcc4e"
