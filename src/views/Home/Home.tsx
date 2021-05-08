@@ -5,6 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
 import LotteryCard from 'views/Home/components/LotteryCard'
+import TwitterCard from 'views/Home/components/TwitterCard'
 import CakeStats from 'views/Home/components/CakeStats'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import EarnAPRCard from 'views/Home/components/EarnAPRCard'
@@ -73,7 +74,7 @@ const CTACards = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     & > div {
-      grid-column: span 4;
+      grid-column: span 6;
     }
   }
 `
@@ -93,12 +94,12 @@ const Home: React.FC = () => {
       <div>
         <Cards>
           <FarmStakingCard />
-          <LotteryCard />
+          <TwitterCard />
         </Cards>
         <CTACards>
           <EarnAPRCard />
           <EarnAssetCard />
-          <WinCard />
+          {/* <WinCard /> */}
         </CTACards>
         <Cards>
           <CakeStats />

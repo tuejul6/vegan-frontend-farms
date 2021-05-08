@@ -6,7 +6,7 @@ import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance, useVeganPerBlock } from 'hooks/useTokenBalance'
 import { useTranslation } from 'contexts/Localization'
 import { getVeganAddress } from 'utils/addressHelpers'
-import { useFarms } from 'state/hooks'
+import { useFarms, usePriceVeganBusd } from 'state/hooks'
 import CardValue from './CardValue'
 
 const StyledCakeStats = styled(Card)`
@@ -28,6 +28,8 @@ const CakeStats = () => {
   const burnedBalance = getBalanceNumber(useBurnedBalance(getVeganAddress()))
   const veganSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
   const veganPerBlock = useVeganPerBlock()
+  const veganPriceUsd = usePriceVeganBusd()
+  const marketCap = veganPriceUsd.times(veganSupply)
 
   return (
     <StyledCakeStats>
@@ -36,12 +38,12 @@ const CakeStats = () => {
           {t('Vegan Stats')}
         </Heading>
         <Row>
-          <Text fontSize="14px">{t('Total VEGAN Supply')}</Text>
-          {veganSupply && <CardValue fontSize="14px" value={veganSupply} />}
+          <Text fontSize="14px">{t('Market Cap')}</Text>
+          <CardValue fontSize="14px" decimals={0} prefix="$" value={marketCap.toNumber()} />
         </Row>
         <Row>
-          <Text fontSize="14px">{t('Total VEGAN Burned')}</Text>
-          <CardValue fontSize="14px" decimals={0} value={burnedBalance} />
+          <Text fontSize="14px">{t('Total VEGAN Supply')}</Text>
+          {veganSupply && <CardValue fontSize="14px" value={veganSupply} />}
         </Row>
         <Row>
           <Text fontSize="14px">{t('New VEGAN/block')}</Text>
