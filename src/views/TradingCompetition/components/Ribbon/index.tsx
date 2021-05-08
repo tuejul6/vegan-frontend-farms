@@ -24,7 +24,7 @@ const TextWrapper = styled(Flex)`
   align-items: center;
   position: absolute;
   height: 46px;
-  background-color: #7645d9;
+  background-color: #30C67E;
 `
 
 const LaurelWrapper = styled.div<{ dir?: 'left' | 'right' }>`

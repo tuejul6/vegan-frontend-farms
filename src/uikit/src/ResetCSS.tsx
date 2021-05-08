@@ -64,7 +64,7 @@ const ResetCSS = createGlobalStyle`
     box-sizing: border-box;
   }
   * {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Rubik', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -84,7 +84,7 @@ const ResetCSS = createGlobalStyle`
     width: 8px;
   }
   ::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.colors.textSubtle}; 
+    background: ${({ theme }) => theme.colors.borderColor}; 
     border-radius: 8px;
   }
   ::-webkit-scrollbar-track {

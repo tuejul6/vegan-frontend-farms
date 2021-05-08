@@ -67,7 +67,7 @@ const HistoryChart: React.FC<HistoryChartProps> = ({ showLast }) => {
       borderCapStyle: 'round',
       gridLines: { display: false },
       ticks: {
-        fontFamily: 'Kanit, sans-serif',
+        fontFamily: 'Rubik, sans-serif',
         fontColor: color,
         fontSize: 12,
         lineHeight,

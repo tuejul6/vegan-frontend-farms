@@ -53,7 +53,7 @@ const EarnAPRCard = () => {
         <Heading color="contrast" size="lg">
           Earn up to
         </Heading>
-        <CardMidContent color="#7645d9">
+        <CardMidContent color="#30C67E">
           {highestApr ? `${highestApr}% ${t('APR')}` : <Skeleton animation="pulse" variant="rect" height="44px" />}
         </CardMidContent>
         <Flex justifyContent="space-between">

@@ -604,7 +604,7 @@ const tokens = {
       97: '',
     },
     decimals: 18,
-    projectLink: 'https://whirl-finance.com/',
+    projectLink: 'https://whirlfinance.io',
   },
   // dusk: {
   //   symbol: 'DUSK',

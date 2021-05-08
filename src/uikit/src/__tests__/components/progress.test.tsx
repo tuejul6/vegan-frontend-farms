@@ -10,7 +10,7 @@ it("renders correctly", () => {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: #7645D9;
+      background-color: #30C67E;
       height: 100%;
       -webkit-transition: width 200ms ease;
       transition: width 200ms ease;

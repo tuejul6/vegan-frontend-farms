@@ -39,7 +39,7 @@ it("renders correctly", () => {
     }
 
     .c2 {
-      background-color: #7645D9;
+      background-color: #30C67E;
       border-radius: 16px 0 0 16px;
       color: #FFFFFF;
       padding: 12px;
