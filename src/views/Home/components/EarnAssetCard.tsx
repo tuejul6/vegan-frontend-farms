@@ -7,13 +7,18 @@ import pools from 'config/constants/pools'
 import { Pool } from 'state/types'
 
 const StyledFarmStakingCard = styled(Card)`
-  background: linear-gradient(#53dee9, #30C67E);
+  background: linear-gradient(#53dee9, #30c67e);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   ${({ theme }) => theme.mediaQueries.lg} {
     margin: 0;
     max-width: none;
+  }
+
+  transition: opacity 200ms;
+  &:hover {
+    opacity: 0.65;
   }
 `
 const CardMidContent = styled(Heading).attrs({ size: 'xl' })`
@@ -27,20 +32,22 @@ const EarnAssetCard = () => {
 
   return (
     <StyledFarmStakingCard>
-      <CardBody>
-        <Heading color="contrast" size="lg">
-          Earn
-        </Heading>
-        <CardMidContent color="invertedContrast">{assets}</CardMidContent>
-        <Flex justifyContent="space-between">
+      <NavLink exact activeClassName="active" to="/syrup" id="pool-cta">
+        <CardBody>
           <Heading color="contrast" size="lg">
-            in Pools
+            Earn
           </Heading>
-          <NavLink exact activeClassName="active" to="/syrup" id="pool-cta">
-            <ArrowForwardIcon mt={30} color="primary" />
-          </NavLink>
-        </Flex>
-      </CardBody>
+          <CardMidContent color="invertedContrast">{assets}</CardMidContent>
+          <Flex justifyContent="space-between">
+            <Heading color="contrast" size="lg">
+              in Pools
+            </Heading>
+            <NavLink exact activeClassName="active" to="/syrup" id="pool-cta">
+              <ArrowForwardIcon mt={30} color="primary" />
+            </NavLink>
+          </Flex>
+        </CardBody>
+      </NavLink>
     </StyledFarmStakingCard>
   )
 }

@@ -429,7 +429,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     <>
       <PageHeader>
         <Heading as="h1" size="xxl" color="secondary" mb="24px">
-          {t('Farms')}
+          {tokenMode ? t('Pools'): t('Farms')}
         </Heading>
         <Heading size="lg" color="text">
           {tokenMode ? t('Stake tokens to earn.') : t('Stake Liquidity Pool (LP) tokens to earn.')}
@@ -486,7 +486,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         </ControlContainer>
         {renderContent()}
         <div ref={loadMoreRef} />
-        <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+        <StyledImage src="/images/logo.svg" alt="Pancake illustration" width={120} height={103} />
       </Page>
     </>
   )

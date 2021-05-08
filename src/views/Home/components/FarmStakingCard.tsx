@@ -59,7 +59,7 @@ const FarmedStakingCard = () => {
         <Heading size="xl" mb="24px">
           {t('Farms & Staking')}
         </Heading>
-        <CardImage src="/images/cake.svg" alt="vegan logo" width={64} height={64} />
+        {/* <CardImage src="/images/cake.svg" alt="vegan logo" width={64} height={64} /> */}
         <Block>
           <Label>{t('VEGAN to Harvest')}:</Label>
           <CakeHarvestBalance />
