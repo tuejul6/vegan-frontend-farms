@@ -37,7 +37,7 @@ const Pools: React.FC = () => {
     [finishedPools],
   )
   // This pool is passed explicitly to the vegan vault
-  const veganPoolData = useMemo(() => openPools.find((pool) => pool.sousId === 0), [openPools])
+  const veganPoolData = useMemo(() => openPools.find((pool) => pool.sousId === 3), [openPools])
 
   return (
     <>

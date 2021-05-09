@@ -38,8 +38,8 @@ export const useSousUnstake = (sousId) => {
 
   const handleUnstake = useCallback(
     async (amount: string, decimals: number) => {
-      if (sousId === 0) {
-        const txHash = await unstake(masterChefContract, 0, amount, account)
+      if (sousId === 3) {
+        const txHash = await unstake(masterChefContract, 3, amount, account)
         console.info(txHash)
       } else if (isOldSyrup) {
         const txHash = await sousEmergencyUnstake(sousChefContract, amount, account)

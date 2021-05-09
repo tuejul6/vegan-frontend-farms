@@ -12,7 +12,7 @@ import BigNumber from 'bignumber.js'
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
 const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== 'BNB')
 const bnbPools = poolsConfig.filter((p) => p.stakingToken.symbol === 'BNB')
-const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 0)
+const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 3)
 const web3 = getWeb3NoAccount()
 const masterChefContract = new web3.eth.Contract((masterChefABI as unknown) as AbiItem, getMasterChefAddress())
 
@@ -68,9 +68,9 @@ export const fetchUserStakeBalances = async (account) => {
   )
 
   // Cake / Cake pool
-  const { amount: masterPoolAmount } = await masterChefContract.methods.userInfo('0', account).call()
+  const { amount: masterPoolAmount } = await masterChefContract.methods.userInfo('3', account).call()
 
-  return { ...stakedBalances, 0: new BigNumber(masterPoolAmount).toJSON() }
+  return { ...stakedBalances, 3: new BigNumber(masterPoolAmount).toJSON() }
 }
 
 export const fetchUserPendingRewards = async (account) => {
@@ -89,7 +89,7 @@ export const fetchUserPendingRewards = async (account) => {
   )
 
   // Vegan / Vegan pool
-  const pendingReward = await masterChefContract.methods.pendingVegan('0', account).call()
+  const pendingReward = await masterChefContract.methods.pendingVegan('3', account).call()
 
-  return { ...pendingRewards, 0: new BigNumber(pendingReward).toJSON() }
+  return { ...pendingRewards, 3: new BigNumber(pendingReward).toJSON() }
 }

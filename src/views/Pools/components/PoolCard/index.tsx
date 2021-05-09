@@ -18,17 +18,17 @@ const PoolCard: React.FC<{ pool: Pool; account: string }> = ({ pool, account }) 
   const stakedBalance = new BigNumber(userData?.stakedBalance || 0)
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
   const stakingTokenPrice = useGetApiPrice(stakingToken.address ? getAddress(stakingToken.address) : '')
-
+  console.log(Number({ stakedBalance }.stakedBalance))
   return (
     <StyledCard
       isStaking={!isFinished && accountHasStakedBalance}
-      isFinished={isFinished && sousId !== 0}
+      isFinished={isFinished && sousId !== 3}
       ribbon={isFinished && <CardRibbon variantColor="textDisabled" text={`${t('Finished')}`} />}
     >
       <StyledCardHeader
         earningTokenSymbol={earningToken.symbol}
         stakingTokenSymbol={stakingToken.symbol}
-        isFinished={isFinished && sousId !== 0}
+        isFinished={isFinished && sousId !== 3}
       />
       <CardBody>
         <AprRow pool={pool} stakingTokenPrice={stakingTokenPrice} />
