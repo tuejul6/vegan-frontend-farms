@@ -118,6 +118,7 @@ const fetchFarms = async (farmsToFetch: FarmConfig[]) => {
         tokenPriceVsQuote: tokenPriceVsQuote.toJSON(),
         poolWeight: poolWeight.toJSON(),
         multiplier: `${allocPoint.div(100).toString()}X`,
+        depositFeeBP: info.depositFeeBP,
         veganPerBlock: new BigNumber(veganPerBlock).toNumber(),
       }
     }),

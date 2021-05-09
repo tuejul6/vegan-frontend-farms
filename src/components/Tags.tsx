@@ -7,6 +7,12 @@ const CoreTag = (props) => (
   </Tag>
 )
 
+const NoFeeTag = (props) => (
+  <Tag variant="secondary" outline startIcon={<VerifiedIcon width="18px" color="secondary" mr="4px" />} {...props}>
+    No Fees
+  </Tag>
+)
+
 const CommunityTag = (props) => (
   <Tag variant="textSubtle" outline startIcon={<CommunityIcon width="18px" color="secondary" mr="4px" />} {...props}>
     Community
@@ -37,4 +43,4 @@ const CompoundingPoolTag = (props) => (
   </Tag>
 )
 
-export { CoreTag, CommunityTag, BinanceTag, DualTag, ManualPoolTag, CompoundingPoolTag }
+export { CoreTag, NoFeeTag, CommunityTag, BinanceTag, DualTag, ManualPoolTag, CompoundingPoolTag }

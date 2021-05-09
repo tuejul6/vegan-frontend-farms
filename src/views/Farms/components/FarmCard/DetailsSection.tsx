@@ -10,6 +10,7 @@ export interface ExpandableSectionProps {
   totalValueFormatted?: string
   lpLabel?: string
   addLiquidityUrl?: string
+  depositFee?: number
 }
 
 const Wrapper = styled.div`
@@ -27,6 +28,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   totalValueFormatted,
   lpLabel,
   addLiquidityUrl,
+  depositFee,
 }) => {
   const { t } = useTranslation()
 
@@ -35,6 +37,10 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
       <Flex justifyContent="space-between">
         <Text>{t('Total Liquidity')}:</Text>
         <Text>{totalValueFormatted}</Text>
+      </Flex>
+      <Flex justifyContent="space-between">
+        <Text>{t('Deposit Fee')}:</Text>
+        <Text>{depositFee / 100}%</Text>
       </Flex>
       {!removed && (
         <StyledLinkExternal href={addLiquidityUrl}>{t(`Get ${lpLabel}`, { name: lpLabel })}</StyledLinkExternal>

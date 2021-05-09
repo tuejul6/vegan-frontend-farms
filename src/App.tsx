@@ -15,6 +15,7 @@ import history from './routerHistory'
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
 const Home = lazy(() => import('./views/Home'))
+const Chart = lazy(() => import('./views/Chart'))
 const Farms = lazy(() => import('./views/Farms'))
 const Pools = lazy(() => import('./views/Pools'))
 const Lottery = lazy(() => import('./views/Lottery'))
@@ -60,6 +61,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/pools">
               <Farms tokenMode />
+            </Route>
+            <Route path="/chart">
+              <Chart />
             </Route>
             <Route path="/pools-hui">
               <Pools />

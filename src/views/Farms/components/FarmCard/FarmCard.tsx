@@ -132,13 +132,14 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, bnbPrice, veganPrice
 
   return (
     <FCard>
-      {farm.token.symbol === tokens.vegan.symbol && <StyledCardAccent />}
+      {/* {farm.token.symbol === tokens.vegan.symbol && <StyledCardAccent />} */}
       <CardHeading
         lpLabel={lpLabel}
         multiplier={farm.multiplier}
         isCommunityFarm={farm.isCommunity}
         farmImage={farmImage}
         tokenSymbol={farm.token.symbol}
+        depositFee={farm.depositFeeBP}
       />
       {!removed && (
         <Flex justifyContent="space-between" alignItems="center">
@@ -173,6 +174,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, bnbPrice, veganPrice
           totalValueFormatted={totalValueFormatted}
           lpLabel={lpLabel}
           addLiquidityUrl={addLiquidityUrl}
+          depositFee={farm.depositFeeBP}
         />
       </ExpandingWrapper>
     </FCard>
