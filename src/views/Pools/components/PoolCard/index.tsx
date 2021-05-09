@@ -18,7 +18,6 @@ const PoolCard: React.FC<{ pool: Pool; account: string }> = ({ pool, account }) 
   const stakedBalance = new BigNumber(userData?.stakedBalance || 0)
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
   const stakingTokenPrice = useGetApiPrice(stakingToken.address ? getAddress(stakingToken.address) : '')
-  console.log(Number({ stakedBalance }.stakedBalance))
   return (
     <StyledCard
       isStaking={!isFinished && accountHasStakedBalance}

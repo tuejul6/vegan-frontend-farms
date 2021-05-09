@@ -1,9 +1,11 @@
+import { Pool } from 'state/types'
 import poolsConfig from 'config/constants/pools'
 import sousChefABI from 'config/abi/sousChef.json'
 import veganABI from 'config/abi/cake.json'
+import masterchefABI from 'config/abi/masterchef.json'
 import wbnbABI from 'config/abi/weth.json'
 import multicall from 'utils/multicall'
-import { getAddress, getWbnbAddress } from 'utils/addressHelpers'
+import { getAddress, getMasterChefAddress, getWbnbAddress } from 'utils/addressHelpers'
 import BigNumber from 'bignumber.js'
 
 export const fetchPoolsBlockLimits = async () => {
@@ -55,17 +57,53 @@ export const fetchPoolsTotalStaking = async () => {
     }
   })
 
+  async function getPoolsWeight() {
+    return Promise.all(
+      [...nonBnbPools, ...bnbPool].map(async (pool) => {
+        if (pool.sousId !== 3) {
+          return {
+            sousId: pool.sousId,
+            poolWeight: 1,
+          }
+        }
+
+        const [info, totalAllocPoint] = await multicall(masterchefABI, [
+          {
+            address: getMasterChefAddress(),
+            name: 'poolInfo',
+            params: [pool.sousId],
+          },
+          {
+            address: getMasterChefAddress(),
+            name: 'totalAllocPoint',
+          },
+        ])
+
+        const allocPoint = new BigNumber(info.allocPoint._hex)
+        const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
+
+        return {
+          sousId: pool.sousId,
+          poolWeight,
+        }
+      }),
+    )
+  }
+
   const nonBnbPoolsTotalStaked = await multicall(veganABI, callsNonBnbPools)
   const bnbPoolsTotalStaked = await multicall(wbnbABI, callsBnbPools)
+  const poolsWeight = await getPoolsWeight()
 
   return [
     ...nonBnbPools.map((p, index) => ({
       sousId: p.sousId,
       totalStaked: new BigNumber(nonBnbPoolsTotalStaked[index]).toJSON(),
+      poolWeight: poolsWeight.find((el) => el.sousId === p.sousId).poolWeight,
     })),
     ...bnbPool.map((p, index) => ({
       sousId: p.sousId,
       totalStaked: new BigNumber(bnbPoolsTotalStaked[index]).toJSON(),
+      poolWeight: poolsWeight.find((el) => el.sousId === p.sousId).poolWeight,
     })),
   ]
 }

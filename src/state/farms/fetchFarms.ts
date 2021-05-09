@@ -107,6 +107,8 @@ const fetchFarms = async (farmsToFetch: FarmConfig[]) => {
       const allocPoint = new BigNumber(info.allocPoint._hex)
       const poolWeight = allocPoint.div(new BigNumber(totalAllocPoint))
 
+      // console.log({ poolWeight: poolWeight.toNumber() })
+
       return {
         ...farmConfig,
         tokenAmount: tokenAmount.toJSON(),

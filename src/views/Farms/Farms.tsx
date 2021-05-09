@@ -429,7 +429,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     <>
       <PageHeader>
         <Heading as="h1" size="xxl" color="secondary" mb="24px">
-          {tokenMode ? t('Pools'): t('Farms')}
+          {tokenMode ? t('Pools') : t('Farms')}
         </Heading>
         <Heading size="lg" color="text">
           {tokenMode ? t('Stake tokens to earn.') : t('Stake Liquidity Pool (LP) tokens to earn.')}

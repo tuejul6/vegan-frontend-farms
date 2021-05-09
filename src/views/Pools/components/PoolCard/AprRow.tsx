@@ -27,7 +27,9 @@ const AprRow: React.FC<AprRowProps> = ({
   performanceFee = 0,
 }) => {
   const { t } = useTranslation()
-  const { stakingToken, earningToken, totalStaked, isFinished, tokenPerBlock } = pool
+  const { stakingToken, earningToken, totalStaked, isFinished, tokenPerBlock, poolWeight } = pool
+
+  console.log({ pool })
 
   const tooltipContent = isAutoVault
     ? t('APY includes compounding, APR doesn’t. This pool’s VEGAN is compounded automatically, so we show APY.')
@@ -38,7 +40,8 @@ const AprRow: React.FC<AprRowProps> = ({
   const apr = getPoolApr(
     stakingTokenPrice,
     earningTokenPrice,
-    getBalanceNumber(totalStaked, stakingToken.decimals),
+    poolWeight,
+    getBalanceNumber(totalStaked, 18),
     parseFloat(tokenPerBlock),
   )
 
