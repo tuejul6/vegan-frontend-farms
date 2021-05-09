@@ -79,13 +79,21 @@ const CTACards = styled(BaseLayout)`
   }
 `
 
+const ImgWrapper = styled.section`
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+`
+
 const Home: React.FC = () => {
   const { t } = useTranslation()
 
   return (
     <Page>
       <Hero>
-        <img src="/images/banner.png" alt="vegan banner" />
+        <ImgWrapper>
+          <img src="/images/banner.png" alt="vegan banner" />
+        </ImgWrapper>
         {/* <Heading as="h1" size="xl" mb="24px" color="secondary">
           {t('VeganSwap')}
         </Heading>
