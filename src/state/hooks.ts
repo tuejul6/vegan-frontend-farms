@@ -171,7 +171,12 @@ export const useGetApiPrices = () => {
 }
 
 export const useGetApiPrice = (address: string) => {
+  const veganPriceBusd = usePriceVeganBusd()
   const prices = useGetApiPrices()
+
+  if (address === getAddress(tokens.vegan.address)) {
+    return veganPriceBusd.toNumber()
+  }
 
   if (!prices) {
     return null

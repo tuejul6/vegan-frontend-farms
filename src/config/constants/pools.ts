@@ -8,11 +8,11 @@ const pools: PoolConfig[] = [
     earningToken: tokens.vegan,
     contractAddress: {
       97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
-      56: '0xf326d27af0691679fe5469f130212053fd7dc0d4',
+      56: '0xf326d27Af0691679FE5469f130212053Fd7dC0d4',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
-    tokenPerBlock: '10',
+    tokenPerBlock: '1',
     sortOrder: 1,
     isFinished: false,
   },

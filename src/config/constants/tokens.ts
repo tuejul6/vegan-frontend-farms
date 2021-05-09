@@ -6,7 +6,7 @@ const tokens = {
   vegan: {
     symbol: 'VEGAN',
     address: {
-      56: '0x901e58695306b5c33c5169334e921a4cf4841571',
+      56: '0x901e58695306B5C33c5169334E921a4cF4841571',
       97: '',
     },
     decimals: 18,

@@ -38,10 +38,9 @@ export const fetchUserBalances = async (account) => {
     params: [account],
   }))
   const tokenBalancesRaw = await multicall(erc20ABI, calls)
-  const tokenBalances = nonBnbPools.reduce(
-    (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(tokenBalancesRaw[index]).toJSON() }),
-    {},
-  )
+  const tokenBalances = nonBnbPools.reduce((acc, pool, index) => {
+    return { ...acc, [pool.sousId]: new BigNumber(tokenBalancesRaw[index]).toJSON() }
+  }, {})
 
   // BNB pools
   const bnbBalance = await web3.eth.getBalance(account)
@@ -60,7 +59,6 @@ export const fetchUserStakeBalances = async (account) => {
     params: [account],
   }))
   const userInfo = await multicall(sousChefABI, calls)
-  console.log({userInfo})
   const stakedBalances = nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,

@@ -165,7 +165,9 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({
       <Flex alignItems="center" justifyContent="space-between" mb="8px">
         <Text bold>{isRemovingStake ? t('Unstake') : t('Stake')}:</Text>
         <Flex alignItems="center" minWidth="70px">
-          <Image src={`/images/tokens/${stakingToken.symbol}.png`} width={24} height={24} alt={stakingToken.symbol} />
+          <Flex justifyContent="flex-end" minWidth="24px">
+            <Image src={`/images/tokens/${stakingToken.symbol}.png`} width={24} height={24} alt={stakingToken.symbol} />
+          </Flex>
           <Text ml="4px" bold>
             {stakingToken.symbol}
           </Text>

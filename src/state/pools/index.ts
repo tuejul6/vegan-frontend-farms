@@ -46,8 +46,6 @@ export const fetchPoolsPublicDataAsync = () => async (dispatch) => {
   const blockLimits = await fetchPoolsBlockLimits()
   const totalStakings = await fetchPoolsTotalStaking()
 
-  // console.log(totalStakings);
-
   const liveData = poolsConfig.map((pool) => {
     const blockLimit = blockLimits.find((entry) => entry.sousId === pool.sousId)
     const totalStaking = totalStakings.find((entry) => entry.sousId === pool.sousId)
@@ -66,9 +64,6 @@ export const fetchPoolsUserDataAsync = (account) => async (dispatch) => {
   const stakedBalances = await fetchUserStakeBalances(account)
   const pendingRewards = await fetchUserPendingRewards(account)
 
-  console.log(stakedBalances);
-
-  
   const userData = poolsConfig.map((pool) => ({
     sousId: pool.sousId,
     allowance: allowances[pool.sousId],
@@ -76,8 +71,6 @@ export const fetchPoolsUserDataAsync = (account) => async (dispatch) => {
     stakedBalance: stakedBalances[pool.sousId],
     pendingReward: pendingRewards[pool.sousId],
   }))
-  
-  // console.log(userData);
 
   dispatch(setPoolsUserData(userData))
 }
