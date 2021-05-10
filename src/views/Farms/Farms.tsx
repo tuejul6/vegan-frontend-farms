@@ -486,7 +486,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         </ControlContainer>
         {renderContent()}
         <div ref={loadMoreRef} />
-        <StyledImage src="/images/logo.svg" alt="Pancake illustration" width={120} height={103} />
+        <StyledImage src="/images/logo-wide.svg" alt="Vegan illustration" width={300} height={100} />
       </Page>
     </>
   )

@@ -45,7 +45,7 @@ const Pools: React.FC = () => {
         <Flex justifyContent="space-between" flexDirection={['column', null, 'row']}>
           <Flex flexDirection="column" mr={['8px', 0]}>
             <Heading as="h1" size="xxl" color="secondary" mb="24px">
-              {t('Syrup Pools')}
+              {t('Vegan Pools')}
             </Heading>
             <Heading size="md" color="text">
               {t('Simply stake tokens to earn.')}
@@ -87,10 +87,10 @@ const Pools: React.FC = () => {
         <Image
           mx="auto"
           mt="12px"
-          src="/images/3d-syrup-bunnies.png"
-          alt="Pancake illustration"
-          width={192}
-          height={184.5}
+          src="/images/logo-wide.svg"
+          alt="Vegan illustration"
+          width={300}
+          height={100}
         />
       </Page>
     </>
