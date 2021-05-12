@@ -29,8 +29,6 @@ const AprRow: React.FC<AprRowProps> = ({
   const { t } = useTranslation()
   const { stakingToken, earningToken, totalStaked, isFinished, tokenPerBlock, poolWeight } = pool
 
-  console.log({ pool })
-
   const tooltipContent = isAutoVault
     ? t('APY includes compounding, APR doesn’t. This pool’s VEGAN is compounded automatically, so we show APY.')
     : t('This pool’s rewards aren’t compounded automatically, so we show APR')

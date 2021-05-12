@@ -19,8 +19,8 @@ export const getBalanceNumber = (balance: BigNumber, decimals = 18) => {
   return getBalanceAmount(balance, decimals).toNumber()
 }
 
-export const getFullDisplayBalance = (balance: BigNumber, decimals = 18, decimalsToAppear?: number) => {
-  return balance.dividedBy(BIG_TEN.pow(decimals)).toFixed(2)
+export const getFullDisplayBalance = (balance: BigNumber, decimals = 18, decimalsToAppear = 2) => {
+  return balance.dividedBy(BIG_TEN.pow(decimals)).toFixed(decimalsToAppear)
 }
 
 export const formatNumber = (number: number, minPrecision = 2, maxPrecision = 2) => {

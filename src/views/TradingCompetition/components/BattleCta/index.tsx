@@ -21,7 +21,7 @@ import { CompetitionProps } from '../../types'
 
 const StyledCard = styled(Card)`
   display: inline-flex;
-  background: linear-gradient(180deg, #30C67E 0%, #452a7a 100%);
+  background: linear-gradient(180deg, #30c67e 0%, #452a7a 100%);
 
   svg {
     margin-bottom: 6px;
@@ -162,7 +162,7 @@ const BattleCta: React.FC<CompetitionProps> = ({
     }
     // Registered and competition is live
     if (hasRegistered && isCompetitionLive) {
-      window.location.href = 'https://exchange.pancakeswap.finance/#/swap'
+      window.location.href = 'https://exchange.veganswap.finance/#/swap'
     }
     // Registered and competition has finished
     if (hasRegistered && hasCompetitionEnded) {

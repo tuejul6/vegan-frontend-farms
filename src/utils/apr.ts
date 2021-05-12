@@ -12,7 +12,7 @@ import { BLOCKS_PER_YEAR } from 'config'
 export const getPoolApr = (
   stakingTokenPrice: number,
   rewardTokenPrice: number,
-  poolWeight: number,
+  poolWeight: BigNumber,
   totalStaked: number,
   tokenPerBlock: number,
 ): number => {

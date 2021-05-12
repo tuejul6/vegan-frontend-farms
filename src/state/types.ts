@@ -31,12 +31,12 @@ export interface Pool extends PoolConfig {
   totalStaked?: BigNumber
   startBlock?: number
   endBlock?: number
-  poolWeight?: number
+  poolWeight?: BigNumber
   userData?: {
-    allowance: BigNumber
-    stakingTokenBalance: BigNumber
-    stakedBalance: BigNumber
-    pendingReward: BigNumber
+    allowance: string
+    stakingTokenBalance: string
+    stakedBalance: string
+    pendingReward: string
   }
 }
 

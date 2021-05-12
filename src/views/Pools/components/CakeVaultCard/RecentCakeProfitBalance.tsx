@@ -19,7 +19,7 @@ const RecentCakeProfitBalance: React.FC<RecentCakeProfitBalanceProps> = ({
   const currentSharesAsVegan = convertSharesToVegan(userShares, pricePerFullShare)
   const veganProfit = currentSharesAsVegan.veganAsBigNumber.minus(veganAtLastUserAction)
   const veganToDisplay = veganProfit.gte(0) ? getFullDisplayBalance(veganProfit, 18, 5) : '0'
-
+  
   const { t } = useTranslation()
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(

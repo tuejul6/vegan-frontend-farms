@@ -17,16 +17,16 @@ import history from './routerHistory'
 const Home = lazy(() => import('./views/Home'))
 const Chart = lazy(() => import('./views/Chart'))
 const Farms = lazy(() => import('./views/Farms'))
-const Pools = lazy(() => import('./views/Pools'))
-const Lottery = lazy(() => import('./views/Lottery'))
-const Ifos = lazy(() => import('./views/Ifos'))
+// const Pools = lazy(() => import('./views/Pools'))
+// const Lottery = lazy(() => import('./views/Lottery'))
+// const Ifos = lazy(() => import('./views/Ifos'))
 const NotFound = lazy(() => import('./views/NotFound'))
-const Collectibles = lazy(() => import('./views/Collectibles'))
-const Teams = lazy(() => import('./views/Teams'))
-const Team = lazy(() => import('./views/Teams/Team'))
-const Profile = lazy(() => import('./views/Profile'))
-const TradingCompetition = lazy(() => import('./views/TradingCompetition'))
-const Predictions = lazy(() => import('./views/Predictions'))
+// const Collectibles = lazy(() => import('./views/Collectibles'))
+// const Teams = lazy(() => import('./views/Teams'))
+// const Team = lazy(() => import('./views/Teams/Team'))
+// const Profile = lazy(() => import('./views/Profile'))
+// const TradingCompetition = lazy(() => import('./views/TradingCompetition'))
+// const Predictions = lazy(() => import('./views/Predictions'))
 
 // This config is required for number formating
 BigNumber.config({
@@ -65,19 +65,19 @@ const App: React.FC = () => {
             <Route path="/chart">
               <Chart />
             </Route>
-            <Route path="/pools-hui">
+            {/* <Route path="/pools-hui">
               <Pools />
-            </Route>
-            <Route path="/lottery">
+            </Route> */}
+            {/* <Route path="/lottery">
               <Lottery />
             </Route>
             <Route path="/ifo">
               <Ifos />
-            </Route>
-            <Route path="/collectibles">
+            </Route> */}
+            {/* <Route path="/collectibles">
               <Collectibles />
-            </Route>
-            <Route exact path="/teams">
+            </Route> */}
+            {/* <Route exact path="/teams">
               <Teams />
             </Route>
             <Route path="/teams/:id">
@@ -91,7 +91,7 @@ const App: React.FC = () => {
             </Route>
             <Route path="/prediction">
               <Predictions />
-            </Route>
+            </Route> */}
             {/* Redirect */}
             <Route path="/staking">
               <Redirect to="/pools" />
@@ -99,9 +99,9 @@ const App: React.FC = () => {
             <Route path="/syrup">
               <Redirect to="/pools" />
             </Route>
-            <Route path="/nft">
+            {/* <Route path="/nft">
               <Redirect to="/collectibles" />
-            </Route>
+            </Route> */}
             {/* 404 */}
             <Route component={NotFound} />
           </Switch>

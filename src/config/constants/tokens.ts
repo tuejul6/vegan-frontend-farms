@@ -1,4 +1,6 @@
-const tokens = {
+import { Token } from "./types"
+
+const tokens: Record<string, Token> = {
   bnb: {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',

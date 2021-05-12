@@ -1,143 +1,143 @@
-import { LinkStatus } from "./types";
+import { LinkStatus } from './types'
 
 export const status = {
   LIVE: <LinkStatus>{
-    text: "LIVE",
-    color: "failure",
+    text: 'LIVE',
+    color: 'failure',
   },
   SOON: <LinkStatus>{
-    text: "SOON",
-    color: "warning",
+    text: 'SOON',
+    color: 'warning',
   },
   NEW: <LinkStatus>{
-    text: "NEW",
-    color: "success",
+    text: 'NEW',
+    color: 'success',
   },
-};
+}
 
 export const links = [
   {
-    label: "Home",
-    icon: "HomeIcon",
-    href: "/",
+    label: 'Home',
+    icon: 'HomeIcon',
+    href: '/',
   },
   {
-    label: "Trade",
-    icon: "TradeIcon",
+    label: 'Trade',
+    icon: 'TradeIcon',
     items: [
       {
-        label: "Exchange",
-        href: "https://exchange.pancakeswap.finance",
+        label: 'Exchange',
+        href: 'https://exchange.veganswap.finance/#/swap?outputCurrency=0x901e58695306b5c33c5169334e921a4cf4841571',
       },
       {
-        label: "Liquidity",
-        href: "https://exchange.pancakeswap.finance/#/pool",
+        label: 'Liquidity',
+        href: 'https://exchange.pancakeswap.finance/#/pool',
       },
     ],
   },
   {
-    label: "Farms",
-    icon: "FarmIcon",
-    href: "/farms",
+    label: 'Farms',
+    icon: 'FarmIcon',
+    href: '/farms',
   },
   {
-    label: "Pools",
-    icon: "PoolIcon",
-    href: "/syrup",
+    label: 'Pools',
+    icon: 'PoolIcon',
+    href: '/syrup',
   },
   {
-    label: "Lottery",
-    icon: "TicketIcon",
-    href: "/lottery",
+    label: 'Lottery',
+    icon: 'TicketIcon',
+    href: '/lottery',
   },
   {
-    label: "NFT",
-    icon: "NftIcon",
-    href: "/nft",
+    label: 'NFT',
+    icon: 'NftIcon',
+    href: '/nft',
   },
   {
-    label: "Profile & Teams",
-    icon: "GroupsIcon",
+    label: 'Profile & Teams',
+    icon: 'GroupsIcon',
     items: [
       {
-        label: "Leaderboard",
-        href: "/",
+        label: 'Leaderboard',
+        href: '/',
       },
       {
-        label: "YourProfile",
-        href: "/",
+        label: 'YourProfile',
+        href: '/',
       },
     ],
-    calloutClass: "rainbow",
+    calloutClass: 'rainbow',
   },
   {
-    label: "Info",
-    icon: "InfoIcon",
+    label: 'Info',
+    icon: 'InfoIcon',
     items: [
       {
-        label: "Overview",
-        href: "https://pancakeswap.info",
+        label: 'Overview',
+        href: 'https://pancakeswap.info',
       },
       {
-        label: "Tokens",
-        href: "https://pancakeswap.info/tokens",
+        label: 'Tokens',
+        href: 'https://pancakeswap.info/tokens',
       },
       {
-        label: "Pairs",
-        href: "https://pancakeswap.info/pairs",
+        label: 'Pairs',
+        href: 'https://pancakeswap.info/pairs',
       },
       {
-        label: "Accounts",
-        href: "https://pancakeswap.info/accounts",
-      },
-    ],
-  },
-  {
-    label: "IFO",
-    icon: "IfoIcon",
-    items: [
-      {
-        label: "Next",
-        href: "/ifo",
-      },
-      {
-        label: "History",
-        href: "/ifo/history",
+        label: 'Accounts',
+        href: 'https://pancakeswap.info/accounts',
       },
     ],
   },
   {
-    label: "More",
-    icon: "MoreIcon",
+    label: 'IFO',
+    icon: 'IfoIcon',
+    items: [
+      {
+        label: 'Next',
+        href: '/ifo',
+      },
+      {
+        label: 'History',
+        href: '/ifo/history',
+      },
+    ],
+  },
+  {
+    label: 'More',
+    icon: 'MoreIcon',
     items: [
       // {
       //   label: "Voting",
       //   href: "https://voting.pancakeswap.finance",
       // },
       {
-        label: "Github",
-        href: "https://github.com/vegandefi/",
+        label: 'Github',
+        href: 'https://github.com/vegandefi/',
       },
       {
-        label: "Docs",
-        href: "https://vegandefi.gitbook.io/vegan-finance/",
+        label: 'Docs',
+        href: 'https://vegandefi.gitbook.io/vegan-finance/',
       },
       {
-        label: "Blog",
-        href: "https://veganfinance.medium.com/",
+        label: 'Blog',
+        href: 'https://veganfinance.medium.com/',
       },
     ],
   },
-];
+]
 
 export const socials = [
   {
-    label: "Telegram",
-    icon: "TelegramIcon",
+    label: 'Telegram',
+    icon: 'TelegramIcon',
     items: [
       {
-        label: "Chat",
-        href: "https://t.me/veganswap",
+        label: 'Chat',
+        href: 'https://t.me/veganswap',
       },
       // {
       //   label: "Bahasa Indonesia",
@@ -180,8 +180,8 @@ export const socials = [
       //   href: "https://t.me/pancakeswapfr",
       // },
       {
-        label: "Announcements",
-        href: "https://t.me/veganswapann",
+        label: 'Announcements',
+        href: 'https://t.me/veganswapann',
       },
       // {
       //   label: "Whale Alert",
@@ -190,13 +190,13 @@ export const socials = [
     ],
   },
   {
-    label: "Twitter",
-    icon: "TwitterIcon",
-    href: "https://twitter.com/veganswap",
+    label: 'Twitter',
+    icon: 'TwitterIcon',
+    href: 'https://twitter.com/veganswap',
   },
-];
+]
 
-export const MENU_HEIGHT = 64;
-export const MENU_ENTRY_HEIGHT = 48;
-export const SIDEBAR_WIDTH_FULL = 240;
-export const SIDEBAR_WIDTH_REDUCED = 56;
+export const MENU_HEIGHT = 64
+export const MENU_ENTRY_HEIGHT = 48
+export const SIDEBAR_WIDTH_FULL = 240
+export const SIDEBAR_WIDTH_REDUCED = 56

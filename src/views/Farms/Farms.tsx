@@ -7,10 +7,12 @@ import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
+import CakeVaultCard from 'views/Pools/components/CakeVaultCard'
+import PoolCard from 'views/Pools/components/PoolCard'
 import { MigrationV2 } from 'components/Banner'
 import { BLOCKS_PER_YEAR } from 'config'
 import tokens from 'config/constants/tokens'
-import { useFarms, usePriceVeganBusd, useGetApiPrices, usePriceBnbBusd } from 'state/hooks'
+import { useFarms, usePriceVeganBusd, useGetApiPrices, usePriceBnbBusd, useBlock, usePools } from 'state/hooks'
 import useRefresh from 'hooks/useRefresh'
 import { useVeganPerBlock } from 'hooks/useTokenBalance'
 import { fetchFarmUserDataAsync } from 'state/actions'
@@ -19,7 +21,7 @@ import { Farm } from 'state/types'
 import { useTranslation } from 'contexts/Localization'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { getFarmApr } from 'utils/apr'
-import { orderBy } from 'lodash'
+import { orderBy, partition } from 'lodash'
 import { getAddress } from 'utils/addressHelpers'
 import isArchivedPid from 'utils/farmHelpers'
 import PageHeader from 'components/PageHeader'
@@ -125,6 +127,19 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const [sortOption, setSortOption] = useState('hot')
   const prices = useGetApiPrices()
   const { tokenMode } = farmsProps
+  const pools = usePools(account)
+  const { currentBlock } = useBlock()
+  const [finishedPools, openPools] = useMemo(
+    () => partition(pools, (pool) => pool.isFinished || currentBlock > pool.endBlock),
+    [currentBlock, pools],
+  )
+  const stakedOnlyPools = useMemo(
+    () => openPools.filter((pool) => pool.userData && new BigNumber(pool.userData.stakedBalance).isGreaterThan(0)),
+    [openPools],
+  )
+
+  // This pool is passed explicitly to the vegan vault
+  const veganPoolData = useMemo(() => openPools.find((pool) => pool.sousId === 3), [openPools])
 
   const dispatch = useAppDispatch()
   const { fastRefresh } = useRefresh()
@@ -185,39 +200,41 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     (farmsToDisplay: Farm[]): FarmWithStakedValue[] => {
       const cakePriceVsBNB = new BigNumber(farmsLP.find((farm) => farm.pid === 1)?.tokenPriceVsQuote || 0)
 
-      let farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay.map((farm) => {
-        if (!farm.lpTotalInQuoteToken || !prices) {
-          return farm
-        }
+      let farmsToDisplayWithAPR: FarmWithStakedValue[] = farmsToDisplay
+        .filter((farm) => farm.pid !== 3)
+        .map((farm) => {
+          if (!farm.lpTotalInQuoteToken || !prices) {
+            return farm
+          }
 
-        const quoteTokenPriceUsd = prices[getAddress(farm.quoteToken.address).toLowerCase()]
-        const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
+          const quoteTokenPriceUsd = prices[getAddress(farm.quoteToken.address).toLowerCase()]
+          const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
 
-        const cakeRewardPerBlock = veganPerBlock.times(farm.poolWeight)
-        const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
-        let apr = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken)
+          const cakeRewardPerBlock = veganPerBlock.times(farm.poolWeight)
+          const cakeRewardPerYear = cakeRewardPerBlock.times(BLOCKS_PER_YEAR)
+          let apr = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken)
 
-        if (farm.quoteToken.symbol === tokens.busd.symbol || farm.quoteToken.symbol === 'UST') {
-          apr = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
-        } else if (farm.quoteToken.symbol === tokens.vegan.symbol) {
-          apr = cakeRewardPerYear.div(farm.lpTotalInQuoteToken)
-        } else if (farm.dual) {
-          const cakeApy =
-            farm && cakePriceVsBNB.times(cakeRewardPerBlock).times(BLOCKS_PER_YEAR).div(farm.lpTotalInQuoteToken)
-          const dualApy =
-            farm.tokenPriceVsQuote &&
-            new BigNumber(farm.tokenPriceVsQuote)
-              .times(farm.dual.rewardPerBlock)
-              .times(BLOCKS_PER_YEAR)
-              .div(farm.lpTotalInQuoteToken)
+          if (farm.quoteToken.symbol === tokens.busd.symbol || farm.quoteToken.symbol === 'UST') {
+            apr = cakePriceVsBNB.times(cakeRewardPerYear).div(farm.lpTotalInQuoteToken).times(bnbPrice)
+          } else if (farm.quoteToken.symbol === tokens.vegan.symbol) {
+            apr = cakeRewardPerYear.div(farm.lpTotalInQuoteToken)
+          } else if (farm.dual) {
+            const cakeApy =
+              farm && cakePriceVsBNB.times(cakeRewardPerBlock).times(BLOCKS_PER_YEAR).div(farm.lpTotalInQuoteToken)
+            const dualApy =
+              farm.tokenPriceVsQuote &&
+              new BigNumber(farm.tokenPriceVsQuote)
+                .times(farm.dual.rewardPerBlock)
+                .times(BLOCKS_PER_YEAR)
+                .div(farm.lpTotalInQuoteToken)
 
-          apr = cakeApy && dualApy && cakeApy.plus(dualApy)
-        }
+            apr = cakeApy && dualApy && cakeApy.plus(dualApy)
+          }
 
-        const apy = isActive ? getFarmApr(farm.poolWeight, veganPrice, totalLiquidity, veganPerBlock) : 0
+          const apy = isActive ? getFarmApr(farm.poolWeight, veganPrice, totalLiquidity, veganPerBlock) : 0
 
-        return { ...farm, apr: apr.times(100).toNumber(), liquidity: totalLiquidity }
-      })
+          return { ...farm, apr: apr.times(100).toNumber(), liquidity: totalLiquidity }
+        })
 
       if (query) {
         const lowercaseQuery = query.toLowerCase()
@@ -380,6 +397,20 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     return (
       <div>
         <FlexLayout>
+          {!!tokenMode && (
+            <>
+              <CakeVaultCard pool={veganPoolData} account={account} />
+              {stakedOnly
+                ? orderBy(stakedOnlyPools, ['sortOrder']).map((pool) => (
+                    <PoolCard key={pool.sousId} pool={pool} account={account} />
+                  ))
+                : orderBy(openPools, ['sortOrder']).map((pool) => (
+                    <PoolCard key={pool.sousId} pool={pool} account={account} />
+                  ))}
+            </>
+          )}
+        </FlexLayout>
+        <FlexLayout>
           <Route exact path={`${path}`}>
             {farmsStakedMemoized.map((farm) => (
               <FarmCard
@@ -437,53 +468,55 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       </PageHeader>
       {/* <MigrationV2 /> */}
       <Page>
-        <ControlContainer>
-          <ViewControls>
-            <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
-            <ToggleWrapper>
-              <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
-              <Text> {t('Staked only')}</Text>
-            </ToggleWrapper>
-            <FarmTabButtons
-              hasStakeInFinishedFarms={stakedInactiveFarms.length > 0}
-              hasStakeInArchivedFarms={stakedArchivedFarms.length > 0}
-            />
-          </ViewControls>
-          <FilterContainer>
-            <LabelWrapper>
-              <Text>SORT BY</Text>
-              <Select
-                options={[
-                  {
-                    label: 'Hot',
-                    value: 'hot',
-                  },
-                  {
-                    label: 'APR',
-                    value: 'apr',
-                  },
-                  {
-                    label: 'Multiplier',
-                    value: 'multiplier',
-                  },
-                  {
-                    label: 'Earned',
-                    value: 'earned',
-                  },
-                  {
-                    label: 'Liquidity',
-                    value: 'liquidity',
-                  },
-                ]}
-                onChange={handleSortOptionChange}
+        {!tokenMode && (
+          <ControlContainer>
+            <ViewControls>
+              <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
+              <ToggleWrapper>
+                <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
+                <Text> {t('Staked only')}</Text>
+              </ToggleWrapper>
+              <FarmTabButtons
+                hasStakeInFinishedFarms={stakedInactiveFarms.length > 0}
+                hasStakeInArchivedFarms={stakedArchivedFarms.length > 0}
               />
-            </LabelWrapper>
-            <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text>SEARCH</Text>
-              <SearchInput onChange={handleChangeQuery} />
-            </LabelWrapper>
-          </FilterContainer>
-        </ControlContainer>
+            </ViewControls>
+            <FilterContainer>
+              <LabelWrapper>
+                <Text>SORT BY</Text>
+                <Select
+                  options={[
+                    {
+                      label: 'Hot',
+                      value: 'hot',
+                    },
+                    {
+                      label: 'APR',
+                      value: 'apr',
+                    },
+                    {
+                      label: 'Multiplier',
+                      value: 'multiplier',
+                    },
+                    {
+                      label: 'Earned',
+                      value: 'earned',
+                    },
+                    {
+                      label: 'Liquidity',
+                      value: 'liquidity',
+                    },
+                  ]}
+                  onChange={handleSortOptionChange}
+                />
+              </LabelWrapper>
+              <LabelWrapper style={{ marginLeft: 16 }}>
+                <Text>SEARCH</Text>
+                <SearchInput onChange={handleChangeQuery} />
+              </LabelWrapper>
+            </FilterContainer>
+          </ControlContainer>
+        )}
         {renderContent()}
         <div ref={loadMoreRef} />
         <StyledImage src="/images/logo-wide.svg" alt="Vegan illustration" width={300} height={100} />
