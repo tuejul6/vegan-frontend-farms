@@ -365,7 +365,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   })
 
   const renderContent = (): JSX.Element => {
-    if (viewMode === ViewMode.TABLE && rowData.length) {
+    if (viewMode === ViewMode.TABLE && rowData.length && !tokenMode) {
       const columnSchema = DesktopColumnSchema
 
       const columns = columnSchema.map((column) => ({
