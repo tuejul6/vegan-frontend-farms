@@ -83,6 +83,9 @@ const ImgWrapper = styled.section`
   border-radius: 32px;
   overflow: hidden;
   display: flex;
+  img {
+    max-height: 220px;
+  }
 `
 
 const Home: React.FC = () => {
