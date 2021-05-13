@@ -210,7 +210,6 @@ const CardUserInfo: React.FC<YourScoreProps> = ({
             {/* Show next ranks if competition is LIVE */}
             {currentPhase.state === LIVE &&
               (team === 1 ? (
-                // If user is first
                 <NextRankBox
                   flex="2"
                   title={`${t('Your tier: gold').toUpperCase()}`}

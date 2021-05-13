@@ -29,7 +29,6 @@ const UserTicketsModal: React.FC<UserTicketsModalProps> = ({ myTicketNumbers, on
     if (rewardMatch(number[0]) > 1 && from !== 'buy') {
       const emoji = new Array(rewardMatch(number[0]) + 1).join('🤑')
       return (
-        // eslint-disable-next-line react/no-array-index-key
         <RewardP key={index}>
           {emoji}
           {number.toString()}
