@@ -17,7 +17,7 @@ const tokens: Record<string, Token> = {
       97: '',
     },
     decimals: 18,
-    projectLink: 'https://pancakeswap.finance/',
+    projectLink: 'https://veganswap.finance/',
   },
   cake: {
     symbol: 'CAKE',
@@ -449,7 +449,7 @@ const tokens: Record<string, Token> = {
       97: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
     },
     decimals: 18,
-    projectLink: 'https://pancakeswap.finance/',
+    projectLink: 'https://veganswap.finance',
   },
   // blink: {
   //   symbol: 'BLINK',

@@ -17,7 +17,7 @@ export const BSC_BLOCK_TIME = 3
 // VEGAN/Block in components/CakeStats.tsx = 22 (40 - Amount sent to burn pool)
 
 export const BLOCKS_PER_YEAR = new BigNumber((60 / BSC_BLOCK_TIME) * 60 * 24 * 365) // 10512000
-export const BASE_URL = 'https://pancakeswap.finance'
+export const BASE_URL = 'https://veganswap.finance'
 export const BASE_EXCHANGE_URL =
   'https://exchange.veganswap.finance/#/swap?outputCurrency=0x901e58695306b5c33c5169334e921a4cf4841571'
 export const BASE_ADD_LIQUIDITY_URL = `${BASE_EXCHANGE_URL}/#/add`
