@@ -231,8 +231,6 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
             apr = cakeApy && dualApy && cakeApy.plus(dualApy)
           }
 
-          const apy = isActive ? getFarmApr(farm.poolWeight, veganPrice, totalLiquidity, veganPerBlock) : 0
-
           return { ...farm, apr: apr.times(100).toNumber(), liquidity: totalLiquidity }
         })
 
@@ -244,7 +242,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       }
       return farmsToDisplayWithAPR
     },
-    [prices, isActive, veganPrice, bnbPrice, farmsLP, query, veganPerBlock],
+    [prices, bnbPrice, farmsLP, query, veganPerBlock],
   )
 
   const handleChangeQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -333,6 +331,18 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     const quoteTokenAddress = quoteToken.address
     const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '')
 
+    let totalLiquidity: BigNumber
+
+    if (!farm.lpTotalInQuoteToken) {
+      totalLiquidity = null
+    } else if (farm.quoteToken.symbol === tokens.wbnb.symbol) {
+      totalLiquidity = bnbPrice.times(farm.lpTotalInQuoteToken)
+    } else if (farm.quoteToken.symbol === tokens.vegan.symbol) {
+      totalLiquidity = veganPrice.times(farm.lpTotalInQuoteToken)
+    } else {
+      totalLiquidity = farm.lpTotalInQuoteToken
+    }
+
     const row: RowProps = {
       apr: {
         value: farm.apr && farm.apr.toLocaleString('en', { maximumFractionDigits: 2 }),
@@ -353,7 +363,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         pid: farm.pid,
       },
       liquidity: {
-        liquidity: farm.liquidity,
+        liquidity: totalLiquidity,
       },
       multiplier: {
         multiplier: farm.multiplier,

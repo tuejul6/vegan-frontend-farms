@@ -1,9 +1,14 @@
-import { Token } from "./types"
+import { Token } from './types'
 
 const tokens: Record<string, Token> = {
   bnb: {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',
+    address: {
+      56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+      97: '',
+    },
+    decimals: 18,
   },
   vegan: {
     symbol: 'VEGAN',

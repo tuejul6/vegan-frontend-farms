@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
-import { LinkExternal, Text } from '@pancakeswap-libs/uikit'
+import { Flex, LinkExternal, Text } from '@pancakeswap-libs/uikit'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { CommunityTag, CoreTag, DualTag } from 'components/Tags'
@@ -162,6 +162,10 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
         )}
         <StyledLinkExternal href={bsc}>{t('View Contract')}</StyledLinkExternal>
         <StyledLinkExternal href={info}>{t('See Pair Info')}</StyledLinkExternal>
+        <Flex justifyContent="space-between">
+          <Text>{t('Deposit Fee')}:</Text>
+          <Text>{details.depositFeeBP / 100}%</Text>
+        </Flex>
         <TagsContainer>
           {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
           {dual ? <DualTag /> : null}

@@ -39,7 +39,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
   }, [fullBalance, setVal])
 
   return (
-    <Modal title={t('Stake LP tokens')} onDismiss={onDismiss}>
+    <Modal title={`${t('Deposit')} ${tokenName} Tokens`} onDismiss={onDismiss}>
       <ModalInput
         value={val}
         onSelectMax={handleSelectMax}
