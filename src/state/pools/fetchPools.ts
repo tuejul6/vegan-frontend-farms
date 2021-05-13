@@ -97,13 +97,13 @@ export const fetchPoolsTotalStaking = async () => {
   return [
     ...nonBnbPools.map((p, index) => ({
       sousId: p.sousId,
-      totalStaked: new BigNumber(nonBnbPoolsTotalStaked[index]),
-      poolWeight: poolsWeight.find((el) => el.sousId === p.sousId).poolWeight,
+      totalStaked: new BigNumber(nonBnbPoolsTotalStaked[index]).toJSON(),
+      poolWeight: poolsWeight.find((el) => el.sousId === p.sousId).poolWeight.toJSON(),
     })),
     ...bnbPool.map((p, index) => ({
       sousId: p.sousId,
-      totalStaked: new BigNumber(bnbPoolsTotalStaked[index]),
-      poolWeight: poolsWeight.find((el) => el.sousId === p.sousId).poolWeight,
+      totalStaked: new BigNumber(bnbPoolsTotalStaked[index]).toJSON(),
+      poolWeight: poolsWeight.find((el) => el.sousId === p.sousId).poolWeight.toJSON(),
     })),
   ]
 }
