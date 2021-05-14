@@ -28,6 +28,15 @@ const tokens: Record<string, Token> = {
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
   },
+  fsxu: {
+    symbol: 'FSXU',
+    address: {
+      56: '0xa94b7a842aadb617a0b08fa744e033c6de2f7595',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: 'https://www.flashxultra.com/',
+  },
   // txl: {
   //   symbol: 'TXL',
   //   address: {

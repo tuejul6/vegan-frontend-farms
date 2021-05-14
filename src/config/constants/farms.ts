@@ -52,7 +52,7 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0x60468BEFC260534B962B8A2a2F7cF84f16789965',
     },
-    token: tokens.vegan,
+    token: tokens.whirl,
     quoteToken: tokens.vegan,
   },
   {
@@ -72,7 +72,7 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0x3557af1c6b0b34767f5ad7fc2b16378f3a4f5dd5',
     },
-    token: tokens.vegan,
+    token: tokens.whirl,
     quoteToken: tokens.wbnb,
   },
   {
@@ -82,7 +82,7 @@ const farms: FarmConfig[] = [
       97: '',
       56: '0x4fe89ac612ee309fa9dec1f501495eea44449924',
     },
-    token: tokens.vegan,
+    token: tokens.fsxu,
     quoteToken: tokens.wbnb,
   },
   {
