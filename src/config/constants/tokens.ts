@@ -37,6 +37,15 @@ const tokens: Record<string, Token> = {
     decimals: 18,
     projectLink: 'https://www.flashxultra.com/',
   },
+  bry: {
+    symbol: 'BRY',
+    address: {
+      56: '0xf859Bf77cBe8699013d6Dbc7C2b926Aaf307F830',
+      97: '',
+    },
+    decimals: 18,
+    projectLink: 'https://www.flashxultra.com/',
+  },
   // txl: {
   //   symbol: 'TXL',
   //   address: {

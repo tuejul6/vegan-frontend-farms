@@ -16,6 +16,16 @@ const farms: FarmConfig[] = [
   //   quoteToken: tokens.wbnb,
   // },
   {
+    pid: 15,
+    lpSymbol: 'VEGAN-BRY LP',
+    lpAddresses: {
+      97: '',
+      56: '0xE3ddA00c41f090696f69Ed8c449bdb1e60B409BE',
+    },
+    token: tokens.bry,
+    quoteToken: tokens.vegan,
+  },
+  {
     pid: 0,
     lpSymbol: 'VEGAN-BUSD LP',
     lpAddresses: {

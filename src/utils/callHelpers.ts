@@ -10,18 +10,9 @@ export const approve = async (lpContract, masterChefContract, account) => {
 }
 
 export const stake = async (masterChefContract, pid, amount, account) => {
-  if (pid === 0) {
-    return masterChefContract.methods
-      .deposit(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
-      .send({ from: account, gas: 200000 })
-      .on('transactionHash', (tx) => {
-        return tx.transactionHash
-      })
-  }
-
   return masterChefContract.methods
-    .deposit(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
-    .send({ from: account, gas: 200000 })
+    .deposit(pid, new BigNumber(amount).times(new BigNumber(10).pow(18)).abs().toString())
+    .send({ from: account })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
     })
@@ -48,7 +39,7 @@ export const sousStakeBnb = async (sousChefContract, amount, account) => {
 export const unstake = async (masterChefContract, pid, amount, account) => {
   if (pid === 0) {
     return masterChefContract.methods
-      .withdraw(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
+      .withdraw(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).abs().toString())
       .send({ from: account, gas: 200000 })
       .on('transactionHash', (tx) => {
         return tx.transactionHash
@@ -56,7 +47,7 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
   }
 
   return masterChefContract.methods
-    .withdraw(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString())
+    .withdraw(pid, new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).abs().toString())
     .send({ from: account, gas: 200000 })
     .on('transactionHash', (tx) => {
       return tx.transactionHash
