@@ -2,8 +2,8 @@
   {
     "inputs": [
       {
-        "internalType": "contract VeganToken",
-        "name": "_vegan",
+        "internalType": "contract GIRLToken",
+        "name": "_GIRL",
         "type": "address"
       },
       {
@@ -18,7 +18,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_veganPerBlock",
+        "name": "_GIRLPerBlock",
         "type": "uint256"
       },
       {
@@ -207,7 +207,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "accVeganPerShare",
+        "name": "accGIRLPerShare",
         "type": "uint256"
       },
       {
@@ -300,10 +300,10 @@
   },
   {
     "inputs": [],
-    "name": "vegan",
+    "name": "GIRL",
     "outputs": [
       {
-        "internalType": "contract VeganToken",
+        "internalType": "contract GIRLToken",
         "name": "",
         "type": "address"
       }
@@ -314,7 +314,7 @@
   },
   {
     "inputs": [],
-    "name": "veganPerBlock",
+    "name": "GIRLPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -434,7 +434,7 @@
         "type": "address"
       }
     ],
-    "name": "pendingVegan",
+    "name": "pendingGIRL",
     "outputs": [
       {
         "internalType": "uint256",
@@ -545,7 +545,7 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_veganPerBlock",
+        "name": "_GIRLPerBlock",
         "type": "uint256"
       }
     ],
