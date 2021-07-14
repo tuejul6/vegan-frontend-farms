@@ -27,14 +27,14 @@ const CakeStats = () => {
   const totalSupply = useTotalSupply()
   const burnedBalance = useBurnedBalance(getCakeAddress())
   const farms = useFarms()
-  const veganPrice = usePriceCakeBusd()
+  const GIRLPrice = usePriceCakeBusd()
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0)
   const cakeSupply = getBalanceNumber(circSupply)
-  const marketCap = veganPrice.times(circSupply)
+  const marketCap = GIRLPrice.times(circSupply)
 
-  let veganPerBlock = 0
-  if (farms && farms[0] && farms[0].veganPerBlock) {
-    veganPerBlock = new BigNumber(farms[0].veganPerBlock).div(new BigNumber(10).pow(18)).toNumber()
+  let GIRLPerBlock = 0
+  if (farms && farms[0] && farms[0].GIRLPerBlock) {
+    GIRLPerBlock = new BigNumber(farms[0].GIRLPerBlock).div(new BigNumber(10).pow(18)).toNumber()
   }
 
   return (
@@ -62,7 +62,7 @@ const CakeStats = () => {
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New VEGAN/block')}</Text>
           <Text bold fontSize="14px">
-            {veganPerBlock}
+            {GIRLPerBlock}
           </Text>
         </Row>
       </CardBody>
